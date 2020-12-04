@@ -23,13 +23,13 @@ fn traverse_slope(ski_map: &str, x_inc: usize, y_inc: usize) -> u64 {
     let mut y: usize = 0;
     let mut tree_count: u64 = 0;
     for line in ski_map.lines() {
-        map_grid.push(line.trim().chars().collect())
+        map_grid.push(line.trim().chars().collect());
     }
     let y_max: usize = map_grid.len();
     let x_max: usize = map_grid[0].len();
     while y < y_max {
         if map_grid[y][x] == '#' {
-            tree_count += 1
+            tree_count += 1;
         }
         x = (x + x_inc) % x_max;
         y += y_inc;
