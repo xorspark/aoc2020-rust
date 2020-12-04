@@ -17,6 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: cargo build --verbose
+      run: |
+        find . ! -path . -type d -exec sh -c 'cd $1 && [ -f Cargo.toml ] && cargo build --verbose' _ {} \;
     - name: Run tests
-      run: cargo test --verbose
+      run: |
+        find . ! -path . -type d -exec sh -c 'cd $1 && [ -f Cargo.toml ] && cargo test --verbose' _ {} \; 
