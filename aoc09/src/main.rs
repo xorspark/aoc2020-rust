@@ -68,7 +68,7 @@ fn is_valid(input_list: &Vec<i32>, preamble_size: usize, check_position: usize) 
     for &preamble_value in preamble_list.iter() {
         let needle: i32 = cmp::max(input_list[check_position], preamble_value)
             - cmp::min(input_list[check_position], preamble_value);
-        if preamble_list.contains(&needle) {
+        if needle != preamble_value && preamble_list.contains(&needle) {
             return true;
         }
     }
@@ -207,7 +207,7 @@ mod tests {
                     309
                     576
                 "},
-                5
+                127
             )
         );
     }
