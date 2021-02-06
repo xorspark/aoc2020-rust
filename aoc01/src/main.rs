@@ -59,8 +59,7 @@ mod tests {
     #[test]
     fn test_part_1_sample_input() {
         let result = do_part_1("1721\n979\n366\n299\n675\n1456");
-        //assert_eq!(514579, result);
-        assert_eq!(114579, result);
+        assert_eq!(514579, result);
     }
 
     #[test]
