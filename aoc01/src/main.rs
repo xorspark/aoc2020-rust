@@ -6,7 +6,7 @@ fn main() -> io::Result<()> {
     let mut input = String::new();
     io::stdin().read_to_string(&mut input)?;
 
-    println!("Part 1: {}", do_part_1(&input))
+    println!("Part 1: {}", do_part_1(&input));
     println!("Part 1: {}", do_part_2(&input));
     Ok(())
 }
