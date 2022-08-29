@@ -16,6 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Expose event
+      run: |
+          echo "${{ github.event_name }}"
     - name: Build
       run: |
        find . ! -path '*/\.*' -type d -mindepth 1 -maxdepth 1 \
