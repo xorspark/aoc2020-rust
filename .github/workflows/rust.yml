@@ -5,6 +5,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  check_run:
   workflow_dispatch:
     inputs:
       runTests:
