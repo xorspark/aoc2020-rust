@@ -35,5 +35,5 @@ jobs:
         RUN_TESTS: ${{ inputs.runTests }}
       run: |
         echo "Run tests: $RUN_TESTS"
-        [[ "${{ github.event_name }}" == "push" || -n "$RUN_TESTS" ]] && find . ! -path '*/\.*' -type d -mindepth 1 -maxdepth 1 \
+        [[ "${{ github.event_name }}" == "push" || "$RUN_TESTS" == "true" ]] && find . ! -path '*/\.*' -type d -mindepth 1 -maxdepth 1 \
         -exec sh -c 'ret=0; for n; do cargo test --manifest-path $n/Cargo.toml; ret=$(($?+$ret)); done; exit $ret' _ {} +
