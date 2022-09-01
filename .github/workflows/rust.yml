@@ -24,10 +24,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Expose event
+        RUN_TESTS: ${{ inputs.runTests }}
       run: |
        echo "${{ github.event_name }}"
     - name: Build
       run: |
+       echo "Run tests? [$RUN_TESTS]"
        find . ! -path '*/\.*' -type d -mindepth 1 -maxdepth 1 \
        -exec sh -c 'ret=0; for n; do cargo build --verbose --manifest-path $n/Cargo.toml; ret=$(($?+$ret)); done; exit $ret' _ {} +
     - name: Run tests
